@@ -1,9 +1,19 @@
 <?php
 
-function getNumberOfDigits($number) {
+function getLengthOfDigit($number) {
+    $length = 0;
+    while ($number / 10 > 1) {
+        $length++;
+        $number /= 10;
+    }
+    $length +=1;
+    return $length;
+}
+
+function getNumberOfDigitsBelowFive($number) {
     echo "Число $number <br>";
     # Вычисляем длину числа
-    $length = ceil(log10(abs($number) + 1));
+    $length = getLengthOfDigit($number);
     $counter = 0;
     # Циклом уменьшаем число в 10 раз и получаем последнюю цифру
     for ($i = 0; $i < $length; $i++) {
@@ -16,9 +26,9 @@ function getNumberOfDigits($number) {
     echo "Количество цифр меньше 5: $counter </br>";
 }
 # Должно быть 0
-getNumberOfDigits(999);
+getNumberOfDigitsBelowFive(999);
 # Должно быть 4
-getNumberOfDigits(192381);
+getNumberOfDigitsBelowFive(192381);
 # Должно быть 4
-getNumberOfDigits(123456);
+getNumberOfDigitsBelowFive(123456);
 
