@@ -1,7 +1,7 @@
 <?php 
 
 function isIncreasingSequance($number) {
-    while ( $number / 10 > 1 ) {
+    while ( $number / 10 >= 1 ) {
         if (!( ($number / 10 % 10) > ($number % 10) )) {
             return false;
         }
@@ -11,7 +11,7 @@ function isIncreasingSequance($number) {
 }
 
 function isDecreasingSequance($number) {
-    while ( $number / 10 > 1 ) {
+    while ( $number / 10 >= 1 ) {
         if (!( ($number / 10 % 10) < ($number % 10) )) {
             return false;
         }

@@ -1,12 +1,12 @@
 <?php 
 
 function isContainDuplicates($number) {
-    while ($number > 1) {
+    while ($number >= 1) {
         # Берем последнее число и циклом сравниваем его с следующими числами
         $lastDigit = $number % 10;
         # Для этого сравнения отсекаем текущее число 
         $innerNumber = $number / 10;
-        while ($innerNumber > 1) {
+        while ($innerNumber >= 1) {
             # И сравниваем текущее число и на разряд выше
             if ($lastDigit == ($innerNumber % 10)){
                 return true;

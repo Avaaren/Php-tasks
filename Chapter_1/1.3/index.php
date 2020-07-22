@@ -2,7 +2,7 @@
 
 function isIncreasingSequance($number) {
     echo "Number is $number <br>";
-    while ( $number / 10 > 1 ) {
+    while ( $number / 10 >= 1 ) {
         if (!( ($number / 10 % 10) < ($number % 10) )) {
             echo "Not increasing <br>";
             return false;

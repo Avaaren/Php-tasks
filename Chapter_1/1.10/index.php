@@ -5,7 +5,7 @@ function isPalindrome($number) {
     $reversedNumber = 0;
     # If number is palindrome -> number == reversed number
     # That, reverse our tmp number and compare with original 
-    while ($tmp > 1) {
+    while ($tmp >= 1) {
         $lastDigit = $tmp % 10;
         $reversedNumber = $reversedNumber * 10 + $lastDigit;
         $tmp /= 10;

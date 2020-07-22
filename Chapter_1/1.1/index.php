@@ -3,7 +3,7 @@
 function getNumberOfDigitsBelowFive($number) {
     echo "Число $number <br>";
     $counter = 0;
-    while ($number > 1) {
+    while ($number >= 1) {
         if ($number % 10 < 5) {
             $counter++;
         }
@@ -14,7 +14,7 @@ function getNumberOfDigitsBelowFive($number) {
 
 
 # Должно быть 0
-getNumberOfDigitsBelowFive(999);
+getNumberOfDigitsBelowFive(1);
 # Должно быть 4
 getNumberOfDigitsBelowFive(192381);
 # Должно быть 4

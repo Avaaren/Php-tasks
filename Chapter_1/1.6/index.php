@@ -1,7 +1,7 @@
 <?php 
 
 function checkNumberForCondition($number) {
-    while ( $number > 1) {
+    while ( $number >= 1) {
         $lastDigit = $number % 10;
         if ($lastDigit != 0 && $lastDigit != 2 && $lastDigit != 3 && $lastDigit != 7){
             return false;

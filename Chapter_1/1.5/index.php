@@ -3,7 +3,7 @@
 function reverseDigit($number) {
     echo "$number -> ";
     $reversedDigit = 0;
-    while ($number > 1) {
+    while ($number >= 1) {
         # Получаем последнее число и циклом увеличиваем его разрядность добавляя след идущие
         $lastDigit = $number % 10;
         $number /= 10;

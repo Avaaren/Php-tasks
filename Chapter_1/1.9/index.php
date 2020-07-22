@@ -3,7 +3,7 @@
 function isAuthomorphic($number) {
     $numberSquare = $number * $number;
     echo "$number is ";
-    while ($number > 1 ) {
+    while ($number >= 1 ) {
         if ( ($number % 10) != ($numberSquare % 10) ) {
             echo "not authomorphic <br>";
             return false;
@@ -11,9 +11,9 @@ function isAuthomorphic($number) {
         $number /= 10;
         $numberSquare /= 10;
     }
-    echo "is authomorphic <br>";
+    echo "authomorphic <br>";
 }
 
 isAuthomorphic(25);
 isAuthomorphic(43); 
-isAuthomorphic(6);
+isAuthomorphic(1);
