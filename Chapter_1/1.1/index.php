@@ -1,17 +1,24 @@
 <?php
 
-function getNumberOfDigits(string $number) {
-    # Неявно преобразуем число в строку чтобы пройтись массивом
+function getNumberOfDigits($number) {
+    echo "Число $number <br>";
+    # Вычисляем длину числа
+    $length = ceil(log10(abs($number) + 1));
     $counter = 0;
-    for ($i = 0; $i < strlen($number); $i++){
-        if ( (int) $number[$i] < 5){
+    # Циклом уменьшаем число в 10 раз и получаем последнюю цифру
+    for ($i = 0; $i < $length; $i++) {
+        if ($number % 10 < 5){
             $counter++;
         }
+        $number = $number / 10;
     }
-    echo "Количество цифр меньше 5 в числе $number: $counter </br>";
+
+    echo "Количество цифр меньше 5: $counter </br>";
 }
-# Должно быть 6
-getNumberOfDigits(81412931);
-# Должно быть 3
-getNumberOfDigits(992381);
+# Должно быть 0
+getNumberOfDigits(999);
+# Должно быть 4
+getNumberOfDigits(192381);
+# Должно быть 4
+getNumberOfDigits(123456);
 
