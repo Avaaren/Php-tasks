@@ -1,24 +1,24 @@
 <?php 
 
 function checkNumberForCondition($number) {
-    $tmp = $number;
-    while ( $tmp >= 1) {
-        $lastDigit = $tmp % 10;
+    $sum = 0;
+    while ( $number >= 1) {
+        $lastDigit = $number % 10;
+        # Ecxluding exceptions
+        if ($lastDigit == ($number / 10 % 10)) {
+            return false;
+        }
+        # Counting sum
+        $sum += $lastDigit;
+        # Get all numbers with this digits
         if ($lastDigit != 0 && $lastDigit != 2 && $lastDigit != 3 && $lastDigit != 7){
             return false;
         }
-        $tmp /= 10;
-    }
-    while ($number >= 1) {
-        $lastDigit = $number % 10;
-        $innerNumber = $number / 10;
-        while ($innerNumber >= 1) {
-            if ($lastDigit == ($innerNumber % 10)){
-                return false;
-            }
-            $innerNumber /= 10;
-        }
         $number /= 10;
+    }
+    # Excluding duplicates
+    if ($sum != 12) {
+        return false;
     }
     return true;
 }
