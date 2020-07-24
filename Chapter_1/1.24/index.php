@@ -12,29 +12,23 @@ function numberToBin($number) {
     echo $binNumber;
 }
 
-
-function numberToHex($number) {
-    $num = 0;
-    $raz = 1;
-    $pos = 0;
-    $posToReplace = 0;
-    while ($number >= 1) {
-        $pos++;
-        $prev = $raz;
-        $mod = $number % 16;
-        $num = $mod * $raz + $num;
-        if ($mod >= 10) {
-            ($pos == 1) ? ($posToReplace = $pos * 1 + $posToReplace) : ($posToReplace = $pos * 10 + $posToReplace);
-            $raz *= 100;
-        }
-        
-        else {
-            $raz *= 10;
-        }
-
-        $number /= 16;
+function numberToHex($number){
+    $lastDigit = ($number % 16);
+    $digits = "0123456789ABCDEF";
+    $rest = $number / 16;
+    if ($rest < 1) {
+        return $digits[$lastDigit];
     }
-    echo "$num --$posToReplace";
+    return numberToHex($rest) . $digits[$lastDigit];
 }
 
-numberToHex(9234);
+function printNumber($number) {
+    echo "Исходное число: $number <br>";
+    echo "В 2 системе: ";
+    numberToBin(753);
+    $hexNumber = numberToHex(753);
+    echo "<br> В 16 системе: $hexNumber <br>";
+
+}
+
+printNumber(7123);
