@@ -48,8 +48,8 @@ function sortArray($array, $sorted=false)
     
     if (!$sorted)
     {
-        $array = sortArray($array, $sorted=true);
-        print_r($array);
+        return sortArray($array, $sorted=true);
+        
     }
     else 
     {
@@ -58,4 +58,4 @@ function sortArray($array, $sorted=false)
 }
 
 $array = array(1, 5, 0, 8, 0, 2);
-sortArray($array, false);
+print_r(sortArray($array, false));
