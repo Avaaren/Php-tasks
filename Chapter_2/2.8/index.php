@@ -10,7 +10,7 @@ function swapNegativeAndMax($array) {
             $indexOfMax = $i;
         }
     }
-    for ($i = sizeof($array)-1; $i > 0; $i--) {
+    for ($i = sizeof($array)-1; $i >= 0; $i--) {
         if ($array[$i] < 0 && !$is_swapped) {
             $array[$indexOfMax] = $array[$i];
             $array[$i] = $max;

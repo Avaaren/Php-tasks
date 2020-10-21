@@ -12,65 +12,19 @@ function insertElement($array, $pos, $element) {
     }
     return $array; 
 }
-
-function sortPositives($array)
-{
-    $swapped = true;
-    while ($swapped)
-    {
-        $swapped = false;
-        $prevIndex = -1;
-        for($i = 0; $i < sizeof($array); $i++)
-        {
-            if ( $array[$i] > 0 )
-            {
-                if ( $prevIndex != $i && $prevIndex != -1 )
-                {
-                    if ( $array[$prevIndex] > $array[$i] )
-                    {
-                        $tmp = $array[$i];
-                        $array[$i] = $array[$prevIndex];
-                        $array[$prevIndex] = $tmp;
-                        $swapped = true;
-                    }
-                    $prevIndex = $i;
-                }
-                else
-                {
-                    $prevIndex = $i;
-                }
+// 1234
+function insertInSortedArray($array, $insertingArray) {
+    for ($i = 0; $i < sizeof($insertingArray); $i++) {
+        $is_inserted = false;
+        for ($j = 0; $j < sizeof($array); $j++) {
+            if ( $insertingArray[$i] <= $array[$j] ){
+                $array = insertElement($array, $j, $insertingArray[$i]);
+                $is_inserted = true;           
+            break;
             }
         }
-    }
-    return $array;
-}
-
-function insertPositive($array, $inserting)
-{
-    $prevIndex = -1;
-    for ($i = 0; $i < sizeof($array); $i++)
-    {
-        if ( $array[$i] > 0)
-        {
-            if ( $prevIndex != -1 && $prevIndex != $i)
-            {
-                if ($inserting > $array[$prevIndex] && $inserting <= $array[$i])
-                {
-                    $array = insertElement($array, $i, $inserting);
-                break;
-                }
-            }
-            else 
-            {
-                $prevIndex = $i;
-            }
+        if (!$is_inserted) {
+            $array = insertElement($array, sizeof($array), $insertingArray[$i]);
         }
     }
-
-    return $array;
 }
-
-$array = array(2,-1,3,5,-6,1);
-$array = sortPositives($array);
-$array = insertPositive($array, 4);
-print_r($array);
